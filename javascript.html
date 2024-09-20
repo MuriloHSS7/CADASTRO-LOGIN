@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Idade</title>
+    </head>
+<body>
+    <script>
+        function calcularIdade(){
+            const idadeDate = new Date(document.getElementById('idadeDate').value);
+            const hoje = new Date();
+            let idade = hoje.getFullYear() - idadeDate.getFullYear();
+            let meses = hoje.getMonth() - idadeDate.getMonth();
+            let dias = hoje.getDate() - idadeDate.getDate();
+            if (meses < 0 || (meses == 0 && dias < 0)){
+                idade--;
+                meses = (meses + 12) % 12;
+            }
+            if (dias < 0){
+                const ultimoDiaMes = new Date(hoje.getFullYear(), hoje.getMonth(), 0).getDate();
+                dias +=ultimoDiaMes;
+                meses--;
+            }
+document.getElementById('resultado').innerHTML='Idade: ' + idade + 'anos, ' + meses + 'meses e ' + dias + 'dias.';
+        }
+    </script>
+    <h1> Calcular Idade</h1>
+    <input type="date" id="idadeDate" required>
+    <br>
+    <button onclick="calcularIdade()">Calcular Idade</button>
+    <p id="resultado"></p>
+</body>
+</html>
