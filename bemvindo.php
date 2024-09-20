@@ -15,6 +15,7 @@
     </head>
     <body>
         <h1>Bem vindo,<?php echo$_SESSION['usuario'];?>!</h1>
-        <p><a href="logout.php">Clique aqui para</a></p>
+        <p><a href="logout.php">Clique aqui para</a></p><br>
+        <p><a href="buscar.php">Buscar usuários</a></p>
     </body>
 </html>
